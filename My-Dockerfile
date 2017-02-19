@@ -1,18 +1,6 @@
 FROM resin/raspberrypi3-python:3.5
 MAINTAINER Grant Shively <gshively11@gmail.com>
 
-# Install and start nginx
-RUN apt-get update \
-  && apt-get install -y -q --no-install-recommends \
-    ca-certificates \
-    nginx \
-    wget \
-  && apt-get clean \
-  && rm -r /var/lib/apt/lists/*
-RUN echo "daemon off;" >>/etc/nginx/nginx.conf \
-  && ln -sf /dev/stdout /var/log/nginx/access.log \
-  && ln -sf /dev/stderr /var/log/nginx/error.log
-
 # Uncomment any of the following lines to disable the installation.
 ENV INSTALL_TELLSTICK no
 #ENV INSTALL_OPENALPR no
@@ -37,6 +25,31 @@ RUN pip3 install --no-cache-dir -r requirements_all.txt && \
 
 # Copy source
 COPY . .
+
+# Install nginx
+RUN apt-get update \
+  && apt-get install -y -q --no-install-recommends \
+    ca-certificates \
+    nginx \
+    wget \
+  && apt-get clean \
+  && rm -r /var/lib/apt/lists/*
+RUN echo "daemon off;" >>/etc/nginx/nginx.conf \
+  && ln -sf /dev/stdout /var/log/nginx/access.log \
+  && ln -sf /dev/stderr /var/log/nginx/error.log
+
+# Install letsencrypt
+RUN echo "deb http://httpredir.debian.org/debian jessie-backports main contrib non-free" \
+  > /etc/apt/sources.list.d/debian-jessie-backports.list \
+  && apt-get update -y \
+  && apt install letsencrypt -t jessie-backports -y \
+  && rm /etc/apt/sources.list.d/debian-jessie-backports.list \
+  && apt-get update -y \
+  && apt-get clean \
+  && rm -r /var/lib/apt/lists/*
+
+# Setup a weeklky cron to attempt renewal of ssl certs (only renews if expiring within 30 days)
+COPY my-scripts/letsencrypt-renew.sh /etc/cron.weekly/letsencrypt
 
 ENTRYPOINT /usr/src/app/my-docker-entrypoint.sh
 

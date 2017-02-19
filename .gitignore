@@ -107,4 +107,9 @@ desktop.ini
 
 # My Config secrets
 my-config/secrets.yaml
+my-config/nginx-home-assistant
+my-config/.htpasswd
+my-config/letsencrypt/
 my-scripts/copy.sh
+my-scripts/letsencrypt.sh
+my-scripts/letsencrypt-renew.sh
