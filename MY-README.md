@@ -22,6 +22,7 @@ The raspberry pi should have the following installed:
 - git ssh keys
 - docker
 - this project cloned/copied to /home/pi/home-assistant/
+- `sudo adduser pi dialout`
 
 There are some files that are not added to the repository because they contain secrets, so if you clone this repository you'll need to add these files manually.
 

@@ -4,7 +4,7 @@
 
 docker run -d \
   --name="my-home-assistant" \
-  -v ./my-config:/config \
+  -v /home/pi/home-assistant/my-config:/config \
   -v /etc/localtime:/etc/localtime:ro \
-  --net=host my-home-assistant \
+  --net=host my-home-assistant:b1b500c \
   --device=/dev/ttyACM0:/zwaveusbstick:rwm
