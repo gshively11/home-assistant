@@ -104,3 +104,6 @@ docs/build
 
 # Windows Explorer
 desktop.ini
+
+# My Config secrets
+my-config/secrets.yaml
