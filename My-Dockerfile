@@ -9,9 +9,9 @@ RUN apt-get update \
     wget \
   && apt-get clean \
   && rm -r /var/lib/apt/lists/*
-RUN ln -sf /dev/stdout /var/log/nginx/access.log \
+RUN echo "daemon off;" >>/etc/nginx/nginx.conf \
+  && ln -sf /dev/stdout /var/log/nginx/access.log \
   && ln -sf /dev/stderr /var/log/nginx/error.log
-RUN nginx -g daemon off;
 
 # Uncomment any of the following lines to disable the installation.
 ENV INSTALL_TELLSTICK no
@@ -38,6 +38,6 @@ RUN pip3 install --no-cache-dir -r requirements_all.txt && \
 # Copy source
 COPY . .
 
-CMD [ "python", "-m", "homeassistant", "--config", "/config" ]
+ENTRYPOINT /usr/src/app/my-docker-entrypoint.sh
 
 EXPOSE 80 443
