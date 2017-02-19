@@ -107,3 +107,4 @@ desktop.ini
 
 # My Config secrets
 my-config/secrets.yaml
+my-scripts/copy.sh

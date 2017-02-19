@@ -7,4 +7,4 @@ if ! [ -z "$(git status --porcelain)" ]; then
   exit 1
 fi
 
-docker build -f My-Dockerfile -t "my-home-assistant:$(git rev-parse --short HEAD)"
+docker build -f My-Dockerfile -t "my-home-assistant:$(git rev-parse --short HEAD)" .
