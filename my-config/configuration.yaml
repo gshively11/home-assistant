@@ -115,7 +115,7 @@ sensor:
               Yes
           {%- endif -%}
   - platform: command_line
-    command: grep -c 'WARNING \[nginx-auth\] Ban' /var/log/fail2ban.log
+    command: /bin/grep -c 'WARNING \[nginx-auth\] Ban' /var/log/fail2ban.log
     name: badlogin
 
 device_tracker:
