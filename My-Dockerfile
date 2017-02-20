@@ -27,6 +27,21 @@ RUN pip3 install --no-cache-dir -r requirements_all.txt && \
 
 # Putting custom stuff after home-assistant build because it takes forever
 
+# Install letsencrypt
+
+RUN echo "deb http://httpredir.debian.org/debian jessie-backports main contrib non-free" \
+  > /etc/apt/sources.list.d/debian-jessie-backports.list \
+  && apt-get update -y \
+  && apt install letsencrypt -t jessie-backports -y \
+  && rm /etc/apt/sources.list.d/debian-jessie-backports.list \
+  && apt-get update -y \
+  && apt-get clean \
+  && rm -r /var/lib/apt/lists/*
+# Copy previously generated letsencrypt config
+COPY my-config/letsencrypt /etc/letsencrypt
+# Setup a weeklky cron to attempt renewal of ssl certs (only renews if expiring within 30 days)
+COPY my-scripts/letsencrypt-renew.sh /etc/cron.weekly/letsencrypt
+
 # Install nginx
 
 RUN apt-get update \
@@ -41,19 +56,6 @@ RUN ln -sf /dev/stdout /var/log/nginx/access.log \
 COPY my-config/nginx-home-assistant /etc/nginx/sites-available/home-assistant
 RUN ln -s /etc/nginx/sites-available/home-assistant /etc/nginx/sites-enabled/home-assistant
 
-# Install letsencrypt
-
-RUN echo "deb http://httpredir.debian.org/debian jessie-backports main contrib non-free" \
-  > /etc/apt/sources.list.d/debian-jessie-backports.list \
-  && apt-get update -y \
-  && apt install letsencrypt -t jessie-backports -y \
-  && rm /etc/apt/sources.list.d/debian-jessie-backports.list \
-  && apt-get update -y \
-  && apt-get clean \
-  && rm -r /var/lib/apt/lists/*
-# Setup a weeklky cron to attempt renewal of ssl certs (only renews if expiring within 30 days)
-COPY my-scripts/letsencrypt-renew.sh /etc/cron.weekly/letsencrypt
-
 # Install Fail2Ban
 
 RUN apt-get update \
@@ -62,6 +64,7 @@ RUN apt-get update \
   && apt-get clean \
   && rm -r /var/lib/apt/lists/*
 COPY my-config/jail.conf /etc/fail2ban/jail.conf
+COPY my-config/nginx-auth.conf /etc/fail2ban/filter.d/nginx-auth.conf
 
 # Copy source
 COPY . .
