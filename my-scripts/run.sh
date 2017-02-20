@@ -8,4 +8,4 @@ docker run -d \
   -v /etc/localtime:/etc/localtime:ro \
   --net=host \
   --name="my-home-assistant" \
-  my-home-assistant:<short-sha-here>
+  my-home-assistant
