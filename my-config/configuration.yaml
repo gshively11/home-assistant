@@ -185,7 +185,7 @@ group:
 #--------------------------
 
 zwave:
-  usb_path: /zwaveusbstick
+  usb_path: /dev/zwaveusbstick
   config_path: /usr/local/share/python-openzwave/config
 
 automation:

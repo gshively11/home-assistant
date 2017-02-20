@@ -42,6 +42,7 @@ RUN apt-get update \
 RUN ln -sf /dev/stdout /var/log/nginx/access.log \
   && ln -sf /dev/stderr /var/log/nginx/error.log
 COPY my-config/nginx-home-assistant /etc/nginx/sites-available/home-assistant
+RUN ln -s /etc/nginx/sites-enabled/home-assistant /etc/nginx/sites-available/home-assistant
 
 # Install letsencrypt
 
@@ -55,6 +56,15 @@ RUN echo "deb http://httpredir.debian.org/debian jessie-backports main contrib n
   && rm -r /var/lib/apt/lists/*
 # Setup a weeklky cron to attempt renewal of ssl certs (only renews if expiring within 30 days)
 COPY my-scripts/letsencrypt-renew.sh /etc/cron.weekly/letsencrypt
+
+# Install Fail2Ban
+
+RUN apt-get update \
+  && apt-get install -y -q --no-install-recommends \
+    fail2ban \
+  && apt-get clean \
+  && rm -r /var/lib/apt/lists/*
+COPY my-config/jail.conf /etc/fail2ban/jail.conf
 
 ENTRYPOINT /usr/src/app/my-docker-entrypoint.sh
 
