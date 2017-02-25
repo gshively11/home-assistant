@@ -37,10 +37,8 @@ RUN echo "deb http://httpredir.debian.org/debian jessie-backports main contrib n
   && apt-get update -y \
   && apt-get clean \
   && rm -r /var/lib/apt/lists/*
-# Copy previously generated letsencrypt config
-COPY my-config/letsencrypt /etc/letsencrypt
 # Setup a weeklky cron to attempt renewal of ssl certs (only renews if expiring within 30 days)
-COPY my-scripts/letsencrypt-renew.sh /etc/cron.weekly/letsencrypt
+COPY my-config/letsencrypt-renew.sh /etc/cron.weekly/letsencrypt
 
 # Install nginx
 
@@ -51,23 +49,15 @@ RUN apt-get update \
     wget \
   && apt-get clean \
   && rm -r /var/lib/apt/lists/*
-RUN mkdir -p /etc/nginx/ssl \
-  && ln -sf /dev/stdout /var/log/nginx/access.log \
-  && ln -sf /dev/stderr /var/log/nginx/error.log
+RUN mkdir -p /etc/nginx/ssl
+  # we can't link to docker stdout/stderr if we want fail2ban to work
+  # && ln -sf /dev/stdout /var/log/nginx/access.log \
+  # && ln -sf /dev/stderr /var/log/nginx/error.log
 COPY my-config/dhparams.pem /etc/nginx/ssl/dhparams.pem
+COPY my-config/.htpasswd /etc/nginx/.htpasswd
 COPY my-config/nginx-home-assistant /etc/nginx/sites-available/home-assistant
-RUN ln -s /etc/nginx/sites-available/home-assistant /etc/nginx/sites-enabled/home-assistant
-
-# Install Fail2Ban
-
-RUN apt-get update \
-  && apt-get install -y -q --no-install-recommends \
-    iptables \
-    fail2ban \
-  && apt-get clean \
-  && rm -r /var/lib/apt/lists/*
-COPY my-config/jail.conf /etc/fail2ban/jail.conf
-COPY my-config/nginx-auth.conf /etc/fail2ban/filter.d/nginx-auth.conf
+RUN rm /etc/nginx/sites-available/default \
+  && ln -s /etc/nginx/sites-available/home-assistant /etc/nginx/sites-enabled/home-assistant
 
 # Copy source
 COPY . .
