@@ -110,7 +110,6 @@ my-config/.htpasswd
 my-config/dhparams.pem
 my-config/letsencrypt/
 my-config/letsencrypt.sh
-my-config/letsencrypt-renew.sh
 my-config/nginx-home-assistant
 my-config/secrets.yaml
 my-scripts/copy.sh
