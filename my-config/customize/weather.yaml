@@ -1,0 +1,30 @@
+sensor.pws_weather:
+  friendly_name: 'Weather'
+sensor.pws_temp_f:
+  friendly_name: 'Temperature'
+sensor.pws_feelslike_f:
+  friendly_name: 'Feels Like'
+sensor.pws_wind_gust_mph:
+  friendly_name: 'Wind Gust'
+sensor.pws_wind_string:
+  friendly_name: 'Wind'
+sensor.pws_precip_1hr_in:
+  friendly_name: 'Rainfall (last hour)'
+sensor.pws_precip_today_in:
+  friendly_name: 'Rainfall (today)'
+sensor.pws_dewpoint_f:
+  friendly_name: 'Dewpoint'
+sensor.pws_pressure_in:
+  friendly_name: 'Pressure'
+sensor.pws_relative_humidity:
+  friendly_name: 'Humidity'
+sensor.pws_UV:
+  friendly_name: 'UV'
+sensor.pws_visibility_mi:
+  friendly_name: 'Visibility'
+sensor.pws_elevation:
+  friendly_name: 'Elevation'
+sensor.pws_location:
+  friendly_name: 'Location'
+sensor.pws_observation_time:
+  friendly_name: 'Last Updated'

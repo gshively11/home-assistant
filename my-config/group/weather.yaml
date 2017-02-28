@@ -1,0 +1,17 @@
+weather:
+  entities:
+    - sensor.pws_weather
+    - sensor.pws_temp_f
+    - sensor.pws_feelslike_f
+    - sensor.pws_relative_humidity
+    - sensor.pws_wind_gust_mph
+    - sensor.pws_wind_string
+    - sensor.pws_precip_1hr_in
+    - sensor.pws_precip_today_in
+    - sensor.pws_dewpoint_f
+    - sensor.pws_pressure_in
+    - sensor.pws_UV
+    - sensor.pws_visibility_mi
+    - sensor.pws_elevation
+    - sensor.pws_location
+    - sensor.pws_observation_time

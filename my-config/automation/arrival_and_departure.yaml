@@ -1,0 +1,39 @@
+- alias: Grant is home
+  trigger:
+    platform: state
+    entity_id: device_tracker.grant_phone
+    state: home
+  action:
+    service: notify.push
+    data:
+      message: Grant is home!
+############################################
+- alias: Grant left home
+  trigger:
+    platform: state
+    entity_id: device_tracker.grant_phone
+    state: not_home
+  action:
+    service: notify.push
+    data:
+      message: Grant left home.
+############################################
+- alias: PJ is home
+  trigger:
+    platform: state
+    entity_id: device_tracker.pjsiphone
+    state: home
+  action:
+    service: notify.push
+    data:
+      message: PJ is home!
+############################################
+- alias: PJ left home
+  trigger:
+    platform: state
+    entity_id: device_tracker.pjsiphone
+    state: not_home
+  action:
+    service: notify.push
+    data:
+      message: PJ left home.

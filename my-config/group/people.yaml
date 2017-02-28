@@ -1,0 +1,4 @@
+people:
+  entities:
+    - device_tracker.grant_phone
+    - device_tracker.pjsiphone

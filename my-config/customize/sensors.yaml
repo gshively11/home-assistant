@@ -1,0 +1,9 @@
+# Pantry Sensor
+sensor.vision_zp3111_multisensor_4in1_luminance_2_3:
+  friendly_name: 'Luminance'
+sensor.vision_zp3111_multisensor_4in1_relative_humidity_2_5:
+  friendly_name: 'Humidity'
+sensor.vision_zp3111_multisensor_4in1_temperature_2_1:
+  friendly_name: 'Temperature'
+sensor.vision_zp3111_multisensor_4in1_burglar_2_10:
+  friendly_name: 'Motion'

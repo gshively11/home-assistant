@@ -1,0 +1,26 @@
+default_view:
+  name: Home
+  view: yes
+  icon: mdi:home
+  entities:
+    - group.weather
+    - group.people
+    - group.admin
+
+tab_rooms:
+  name: Rooms
+  view: yes
+  entities:
+    - group.pantry
+
+tab_media:
+  name: Media
+  view: yes
+  entities:
+    - group.media
+
+tab_devices:
+  name: Devices
+  view: yes
+  entities:
+    - group.devices

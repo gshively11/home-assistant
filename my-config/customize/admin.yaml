@@ -1,0 +1,2 @@
+sensor.badlogin:
+  friendly_name: Login Failures (Weekly)

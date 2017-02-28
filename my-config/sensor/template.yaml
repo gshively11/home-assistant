@@ -1,0 +1,11 @@
+- platform: template
+  sensors:
+
+    pantry_motion:
+      friendly_name: 'Motion Detected'
+      value_template: >-
+        {%- if is_state("sensor.vision_zp3111_multisensor_4in1_burglar_2_10", "0") -%}
+            No
+        {%- else -%}
+            Yes
+        {%- endif -%}

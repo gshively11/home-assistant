@@ -1,0 +1,4 @@
+device_tracker.grant_phone:
+  friendly_name: Grant
+device_tracker.pjsiphone:
+  friendly_name: PJ

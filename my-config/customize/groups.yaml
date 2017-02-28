@@ -1,0 +1,16 @@
+group.admin:
+  friendly_name: 'Admin'
+group.devices:
+  friendly_name: 'Devices'
+group.lights:
+  friendly_name: 'Lights'
+group.media:
+  friendly_name: 'Media'
+group.pantry:
+  friendly_name: 'Pantry'
+group.people:
+  friendly_name: 'People'
+group.sensors:
+  friendly_name: 'Sensors'
+group.weather:
+  friendly_name: 'Weather'

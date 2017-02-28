@@ -1,0 +1,15 @@
+device_tracker.446132fc69ce:
+  friendly_name: Thermostat
+device_tracker.arloq:
+  friendly_name: Camera Living Room
+device_tracker.arloq_2:
+  friendly_name: Camera Loft
+device_tracker.googlehome:
+  friendly_name: Google Home Downstairs
+device_tracker.grantsmbp:
+  friendly_name: Grant's Macbook
+device_tracker.lmdvgshive1932: 
+  friendly_name: Grant's Work Macbook
+device_tracker.raspberrypi: 
+  friendly_name: Home Assistant (Pi)
+  hidden: true

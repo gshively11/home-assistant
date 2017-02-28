@@ -1,0 +1,35 @@
+- alias: Z-Wave network is complete
+  trigger:
+    platform: event
+    event_type: zwave.network_complete
+  action:
+    service: notify.file
+    data:
+      message: Z-Wave network is complete
+##########################################
+- alias: Z-Wave network is ready
+  trigger:
+    platform: event
+    event_type: zwave.network_ready
+  action:
+    service: notify.file
+    data:
+      message: Z-Wave network is ready
+##########################################
+- alias: Z-Wave network is starting
+  trigger:
+    platform: event
+    event_type: zwave.network_start
+  action:
+    service: notify.file
+    data:
+      message: Z-Wave network is starting
+##########################################
+- alias: Z-Wave network is stopping
+  trigger:
+    platform: event
+    event_type: zwave.network_stop
+  action:
+    service: notify.file
+    data:
+      message: Z-Wave network is stopping
