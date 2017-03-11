@@ -1,7 +1,11 @@
 pantry:
   entities:
-    - switch.__switch_3_0
+    - switch.pantry_light_switch_3_0
     - sensor.pantry_motion
-    - sensor.vision_zp3111_multisensor_4in1_luminance_2_3
-    - sensor.vision_zp3111_multisensor_4in1_relative_humidity_2_5
-    - sensor.vision_zp3111_multisensor_4in1_temperature_2_1
+    - sensor.pantry_sensor_luminance_5_3
+    - sensor.pantry_sensor_relative_humidity_5_5
+    - sensor.pantry_sensor_temperature_5_1
+kitchen:
+  entities:
+    - switch.kitchen_light_switch_4_0
+    - media_player.living_room_home

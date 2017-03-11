@@ -1,3 +1,4 @@
 lights:
   entities:
-    - switch.__switch_3_0
+    - switch.kitchen_light_switch_4_0
+    - switch.pantry_light_switch_3_0

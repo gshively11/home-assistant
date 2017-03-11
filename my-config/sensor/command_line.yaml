@@ -1,4 +1,5 @@
 - platform: command_line
   name: badlogin
-  command: sudo /bin/grep -c 'WARNING \[nginx-auth\] Ban' /var/log/my-host/fail2ban.log
+  command: sudo /bin/grep -c 'WARNING \[nginx-auth\] Ban' /var/log/my-host/fail2ban.log || true
+
     

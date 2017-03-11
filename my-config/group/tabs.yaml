@@ -12,6 +12,7 @@ tab_rooms:
   view: yes
   entities:
     - group.pantry
+    - group.kitchen
 
 tab_media:
   name: Media
@@ -24,3 +25,15 @@ tab_devices:
   view: yes
   entities:
     - group.devices
+
+tab_lights:
+  name: Lights
+  view: yes
+  entities:
+    - group.lights
+
+tab_sensors:
+  name: Sensors
+  view: yes
+  entities:
+    - group.sensors

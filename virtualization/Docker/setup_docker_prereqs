@@ -8,6 +8,7 @@ INSTALL_TELLSTICK="${INSTALL_TELLSTICK:-yes}"
 INSTALL_OPENALPR="${INSTALL_OPENALPR:-yes}"
 INSTALL_FFMPEG="${INSTALL_FFMPEG:-yes}"
 INSTALL_OPENZWAVE="${INSTALL_OPENZWAVE:-yes}"
+INSTALL_OZWCP="${INSTALL_OZWCP:-yes}"
 INSTALL_LIBCEC="${INSTALL_LIBCEC:-yes}"
 INSTALL_PHANTOMJS="${INSTALL_PHANTOMJS:-yes}"
 
@@ -21,6 +22,8 @@ PACKAGES=(
   nmap net-tools libcurl3-dev
   # homeassistant.components.device_tracker.bluetooth_tracker
   bluetooth libglib2.0-dev libbluetooth-dev
+  # ozwcp
+  libgnutls28-dev libgnutlsxx28
 )
 
 # Required debian packages for building dependencies
@@ -50,6 +53,10 @@ fi
 
 if [ "$INSTALL_OPENZWAVE" == "yes" ]; then
   virtualization/Docker/scripts/python_openzwave
+fi
+
+if [ "$INSTALL_OZWCP" == "yes" ]; then
+  virtualization/Docker/scripts/ozwcp
 fi
 
 if [ "$INSTALL_LIBCEC" == "yes" ]; then

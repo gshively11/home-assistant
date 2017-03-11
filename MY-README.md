@@ -14,10 +14,15 @@ This is a branch off master to setup a custom Dockerfile intended to be built an
   - Scripts that are meant to be run on the raspberry pi host
 - My-Dockerfile
   - My customized Dockerfile
+- virtualization/Docker/scripts/ozwcp
+  - Script to install ozwcp on raspberry pi/docker
+- virtualization/Docker/ozwcp-Makefile
+  - Makefile for open-zwave-control-panel, modified to work on raspberry pi/docker
 
 ### Existing Directories/Files Modified
 
-- None
+- virtualization/Docker/setup_docker_prereqs
+  - Added ozwcp install + dependencies
 
 ### Prerequisites
 
@@ -48,6 +53,19 @@ Run this command on the raspberry pi - `./my-scripts/build.sh`
 ### Running
 
 Run this command on the raspberry pi - `./my-scripts/run.sh`
+
+### Zwave
+
+It's easier to use open zwave control panel (ozwcp) to setup your zwave network. You can startup openzwave control panel instead of home assistant by running `./my-scripts/run.sh zwave`.
+
+There are 3 configuration files you'll want to make note of:
+- /usr/src/app/virtualization/Docker/build/open-zwave-control-panel/zwcfg_*.xml
+- /usr/src/app/virtualization/Docker/build/open-zwave-control-panel/zwscene.xml
+- /usr/local/share/python-openzwave/config/options.xml
+
+If you don't already have a zwcfg_*.xml file in your my-config directory, ozwcp will create one for you at the path mentioned above, and you'll have to manually copy it over to my-config. Once it exists in my-config, it will be symlinked to ozwcp when starting the container.  Same thing goes for zwscene.xml.
+
+If you need to pair secure devices to your zwave network, you'll need to make sure to backup options.xml because it contains your zwave controller's security key.  It goes in `/usr/local/share/python-openzwave/config`. This project isn't setup to handle that file yet.
 
 ### Sanitized secrets
 

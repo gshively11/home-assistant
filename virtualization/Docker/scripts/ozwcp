@@ -1,0 +1,49 @@
+#!/bin/sh
+# Sets up open zwave control panel.
+# Dependencies that need to be installed:
+# python-openzwave
+# libgnutls28-dev libgnutlsxx28
+# libmicrohttpd-0.9.19
+
+# NOTE, this script requires tab indentations, at least for the Makefile part
+
+# Stop on errors
+set -e
+
+cd "$(dirname "$0")/.."
+
+if [ ! -d build ]; then
+	mkdir build
+fi
+
+cd build
+
+# First we need to install/make libmicrohttpd
+
+if [ ! -d libmicrohttpd ]; then
+	wget ftp://ftp.gnu.org/gnu/libmicrohttpd/libmicrohttpd-0.9.19.tar.gz  
+	tar xf libmicrohttpd-0.9.19.tar.gz  
+	mv libmicrohttpd-0.9.19 libmicrohttpd  
+fi
+
+cd libmicrohttpd
+./configure  
+make  
+make install  
+
+# Now we can install ozwcp
+cd ..
+
+if [ -d open-zwave-control-panel ]; then
+	git pull
+else
+	git clone https://github.com/OpenZWave/open-zwave-control-panel.git
+fi
+
+cd open-zwave-control-panel
+
+# modified makefile to support raspbian/python-openzwave
+mv ../../ozwcp-Makefile ./Makefile
+
+make  
+ln -sd /usr/local/share/python-openzwave/config

@@ -22,4 +22,4 @@ docker run -d \
   --name="my-home-assistant" \
   -p 127.0.0.1:80:80 \
   -p 127.0.0.1:443:443 \
-  my-home-assistant
+  my-home-assistant "$@"

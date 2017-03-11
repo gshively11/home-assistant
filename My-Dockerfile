@@ -8,6 +8,7 @@ ENV INSTALL_TELLSTICK no
 #ENV INSTALL_OPENALPR no
 #ENV INSTALL_FFMPEG no
 #ENV INSTALL_OPENZWAVE no
+#ENV INSTALL_OZWCP no
 ENV INSTALL_LIBCEC no
 ENV INSTALL_PHANTOMJS no
 
@@ -62,6 +63,7 @@ RUN rm /etc/nginx/sites-available/default \
 # Copy source
 COPY . .
 
-ENTRYPOINT /usr/src/app/my-docker-entrypoint.sh
+ENTRYPOINT ["/usr/src/app/my-docker-entrypoint.sh"]
+CMD ["hass"]
 
 EXPOSE 80 443
