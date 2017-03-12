@@ -13,6 +13,7 @@ tab_rooms:
   entities:
     - group.pantry
     - group.kitchen
+    - group.living_room
 
 tab_media:
   name: Media

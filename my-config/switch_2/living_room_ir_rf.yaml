@@ -1,0 +1,9 @@
+- platform: broadlink
+  host: 192.168.1.163
+  mac: 34:EA:34:E7:EC:7D
+  timeout: 15
+  switches:
+    living_room_tv:
+      friendly_name: Living Room TV Power
+      command_on: JgBYAAABJ5QSExMSEzcTExITEhMSExMSEzcTNxQSEjgSOBI4EjgTNxITFBETExM3EhMSExITEhMTNxQ2EzgTEhI2FDgSOBI4EwAFFgABKEkTAAxVAAEnShIADQU=
+      command_off: JgBYAAABJ5QSExMSEzcTExITEhMSExMSEzcTNxQSEjgSOBI4EjgTNxITFBETExM3EhMSExITEhMTNxQ2EzgTEhI2FDgSOBI4EwAFFgABKEkTAAxVAAEnShIADQU=

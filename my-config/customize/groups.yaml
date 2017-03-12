@@ -2,8 +2,12 @@ group.admin:
   friendly_name: 'Admin'
 group.devices:
   friendly_name: 'Devices'
+group.kitchen:
+  friendly_name: 'Kitchen'
 group.lights:
   friendly_name: 'Lights'
+group.living_room:
+  friendly_name: 'Living Room'
 group.media:
   friendly_name: 'Media'
 group.pantry:

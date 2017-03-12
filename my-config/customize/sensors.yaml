@@ -1,7 +1,7 @@
 # Pantry Sensor
 sensor.pantry_sensor_luminance_5_3:
-  friendly_name: 'Luminance'
+  friendly_name: 'Pantry Luminance'
 sensor.pantry_sensor_relative_humidity_5_5:
-  friendly_name: 'Humidity'
+  friendly_name: 'Pantry Humidity'
 sensor.pantry_sensor_temperature_5_1:
-  friendly_name: 'Temperature'
+  friendly_name: 'Pantry Temperature'

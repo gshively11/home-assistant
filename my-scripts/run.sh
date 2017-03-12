@@ -18,6 +18,7 @@ docker run -d \
   -v /etc/localtime:/etc/localtime:ro \
   -v /var/log/my-home-assistant/nginx:/var/log/nginx \
   -v /var/log:/var/log/my-host:ro \
+  -v /home/pi/home-assistant/my-letsencrypt:/etc/letsencrypt \
   --net=host \
   --name="my-home-assistant" \
   -p 127.0.0.1:80:80 \

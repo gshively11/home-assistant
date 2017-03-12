@@ -1,3 +1,5 @@
 media_player.living_room_home:
-  friendly_name: Google Home Downstairs
+  friendly_name: Living Room Google Home
   icon: mdi:music-circle
+switch.living_room_tv:
+  icon: mdi:television

@@ -1,7 +1,7 @@
 - platform: template
   sensors:
     pantry_motion:
-      friendly_name: 'Motion Detected'
+      friendly_name: 'Pantry Motion'
       value_template: >-
         {%- if states('sensor.pantry_sensor_burglar_5_10') == 'unknown' -%}
             N/A

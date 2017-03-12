@@ -8,4 +8,7 @@ pantry:
 kitchen:
   entities:
     - switch.kitchen_light_switch_4_0
+living_room:
+  entities:
+    - switch.living_room_tv
     - media_player.living_room_home

@@ -108,10 +108,10 @@ desktop.ini
 # My secrets
 my-config/.htpasswd
 my-config/dhparams.pem
-my-config/letsencrypt/
 my-config/letsencrypt.sh
 my-config/nginx-home-assistant
 my-config/options.xml
 my-config/secrets.yaml
+my-letsencrypt/
 my-scripts/copy.sh
 
