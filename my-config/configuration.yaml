@@ -17,6 +17,7 @@ sun:
 automation: !include_dir_merge_list automation
 sensor: !include_dir_merge_list sensor
 switch 2: !include_dir_merge_list switch_2
+script: !include_dir_merge_named script
 group: !include_dir_merge_named group
 
 http:

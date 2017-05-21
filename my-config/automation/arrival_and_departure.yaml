@@ -1,7 +1,7 @@
 - alias: Grant is home
   trigger:
     platform: state
-    entity_id: device_tracker.grant_phone
+    entity_id: device_tracker.androidc8e6d278ab559db2
     state: home
   action:
     service: notify.push
@@ -11,7 +11,7 @@
 - alias: Grant left home
   trigger:
     platform: state
-    entity_id: device_tracker.grant_phone
+    entity_id: device_tracker.androidc8e6d278ab559db2
     state: not_home
   action:
     service: notify.push

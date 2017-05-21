@@ -1,11 +1,14 @@
 devices:
   entities:
     - device_tracker.446132fc69ce
+    - device_tracker.androidc8e6d278ab559db2
     - device_tracker.arloq
     - device_tracker.arloq_2
+    - device_tracker.broadlink_rmpropluse7ec7d
+    - device_tracker.fcf1521b27ae
     - device_tracker.googlehome
-    - device_tracker.grant_phone
     - device_tracker.grantsmbp
     - device_tracker.lmdvgshive1932
+    - device_tracker.patricesipad
     - device_tracker.pjsiphone
     - device_tracker.raspberrypi

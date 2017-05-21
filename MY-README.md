@@ -14,15 +14,6 @@ This is a branch off master to setup a custom Dockerfile intended to be built an
   - Scripts that are meant to be run on the raspberry pi host
 - My-Dockerfile
   - My customized Dockerfile
-- virtualization/Docker/scripts/ozwcp
-  - Script to install ozwcp on raspberry pi/docker
-- virtualization/Docker/ozwcp-Makefile
-  - Makefile for open-zwave-control-panel, modified to work on raspberry pi/docker
-
-### Existing Directories/Files Modified
-
-- virtualization/Docker/setup_docker_prereqs
-  - Added ozwcp install + dependencies
 
 ### Prerequisites
 

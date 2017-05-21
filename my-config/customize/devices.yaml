@@ -4,12 +4,18 @@ device_tracker.arloq:
   friendly_name: Living Room Camera
 device_tracker.arloq_2:
   friendly_name: Loft Camera
+device_tracker.broadlink_rmpropluse7ec7d:
+  friendly_name: IR/RF Living Room
+device_tracker.fcf1521b27ae:
+  friendly_name: PS4
 device_tracker.googlehome:
   friendly_name: Living Room Google Home
 device_tracker.grantsmbp:
   friendly_name: Grant's Macbook
 device_tracker.lmdvgshive1932: 
   friendly_name: Grant's Work Macbook
+device_tracker.patricesipad:
+  friendly_name: PJ's iPad
 device_tracker.raspberrypi: 
   friendly_name: Home Assistant (Pi)
   hidden: true

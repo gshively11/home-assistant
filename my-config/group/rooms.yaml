@@ -10,5 +10,10 @@ kitchen:
     - switch.kitchen_light_switch_4_0
 living_room:
   entities:
-    - switch.living_room_tv
+    - switch.living_room_tv_power
+    - switch.living_room_receiver_power
+    - switch.living_room_receiver_volume_up
+    - switch.living_room_receiver_volume_down
+    - switch.living_room_receiver_mute
+    - switch.living_room_photo_frame_power
     - media_player.living_room_home

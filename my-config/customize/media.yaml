@@ -1,5 +1,21 @@
 media_player.living_room_home:
   friendly_name: Living Room Google Home
   icon: mdi:music-circle
-switch.living_room_tv:
+switch.living_room_tv_power:
+  friendly_name: Living Room TV Power
   icon: mdi:television
+switch.living_room_receiver_power:
+  friendly_name: Living Room Receiver Power
+  icon: mdi:music-note
+switch.living_room_receiver_volume_up:
+  friendly_name: Living Room Receiver Volume Up
+  icon: mdi:volume-high
+switch.living_room_receiver_volume_down:
+  friendly_name: Living Room Receiver Volume Down
+  icon: mdi:volume-low
+switch.living_room_receiver_mute:
+  friendly_name: Living Room Receiver Mute
+  icon: mdi:volume-off
+switch.living_room_photo_frame_power:
+  friendly_name: Living Room Photo Frame Power
+  icon: mdi:camera

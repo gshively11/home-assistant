@@ -1,4 +1,9 @@
 media:
   entities:
     - media_player.living_room_home
-    - switch.living_room_tv
+    - switch.living_room_tv_power
+    - switch.living_room_receiver_power
+    - switch.living_room_receiver_volume_up
+    - switch.living_room_receiver_volume_down
+    - switch.living_room_receiver_mute
+    - switch.living_room_photo_frame_power
