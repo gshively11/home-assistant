@@ -24,6 +24,7 @@ from homeassistant.const import (
     SERVICE_STOP_COVER_TILT, SERVICE_SET_COVER_TILT_POSITION, STATE_OPEN,
     STATE_CLOSED, STATE_UNKNOWN, ATTR_ENTITY_ID)
 
+_LOGGER = logging.getLogger(__name__)
 
 DOMAIN = 'cover'
 SCAN_INTERVAL = timedelta(seconds=15)
@@ -46,8 +47,6 @@ SUPPORT_OPEN_TILT = 16
 SUPPORT_CLOSE_TILT = 32
 SUPPORT_STOP_TILT = 64
 SUPPORT_SET_TILT_POSITION = 128
-
-_LOGGER = logging.getLogger(__name__)
 
 ATTR_CURRENT_POSITION = 'current_position'
 ATTR_CURRENT_TILT_POSITION = 'current_tilt_position'
@@ -166,7 +165,7 @@ def async_setup(hass, config):
             if not cover.should_poll:
                 continue
 
-            update_coro = hass.loop.create_task(
+            update_coro = hass.async_add_job(
                 cover.async_update_ha_state(True))
             if hasattr(cover, 'async_update'):
                 update_tasks.append(update_coro)

@@ -22,11 +22,11 @@ from homeassistant.helpers.entity_component import EntityComponent
 from homeassistant.helpers.config_validation import PLATFORM_SCHEMA  # noqa
 import homeassistant.helpers.config_validation as cv
 
+_LOGGER = logging.getLogger(__name__)
 
 DOMAIN = 'fan'
-SCAN_INTERVAL = timedelta(seconds=30)
 
-_LOGGER = logging.getLogger(__name__)
+SCAN_INTERVAL = timedelta(seconds=30)
 
 GROUP_NAME_ALL_FANS = 'all fans'
 ENTITY_ID_ALL_FANS = group.ENTITY_ID_FORMAT.format(GROUP_NAME_ALL_FANS)
@@ -218,7 +218,7 @@ def async_setup(hass, config: dict):
             if not fan.should_poll:
                 continue
 
-            update_coro = hass.loop.create_task(
+            update_coro = hass.async_add_job(
                 fan.async_update_ha_state(True))
             if hasattr(fan, 'async_update'):
                 update_tasks.append(update_coro)
